@@ -11,13 +11,17 @@
 
 ## Installation
 
+Open new terminal emulator and issue the following command
+
 ```bash
 git clone git@github.com:vamstack/KYD_AI-service-reference-implementation.git
 cd KYD_AI-service-reference-implementation
-docker-compose up -d
+docker-compose up
 ```
 
 ## Test the setup
+
+Open new terminal emulator and issue the following command
 
 ```bash
 docker-compose exec http-server python3 generate_local_mock_request.py
