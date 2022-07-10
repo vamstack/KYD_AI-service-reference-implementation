@@ -1,0 +1,13 @@
+version: '3'
+services:
+  http-server:
+    build: .
+    image: kyd-service-ref-impl:latest
+    ports:
+      - 8080:8080
+    env_file:
+      - development.env
+    volumes:
+      - ./src/analysis.py:/service/analysis.py
+      - ./request-analysis.sample.json:/service/request-analysis.sample.json
+    command: gunicorn --bind :8080 service:service
