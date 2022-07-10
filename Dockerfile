@@ -6,5 +6,6 @@ RUN apt-get update && apt-get install -y \
     libmagic1 \
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /service
-COPY requirements.txt /src/* /service/
-RUN pip3 install -r requirements.txt
+COPY requirements.txt .
+RUN --mount=type=cache,target=/root/.cache/pip pip3 install -r requirements.txt
+COPY /src/* /service/
